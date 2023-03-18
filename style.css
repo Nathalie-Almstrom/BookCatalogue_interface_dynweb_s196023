@@ -1,3 +1,52 @@
-h1, p {
+h1,
+p {
   font-family: Lato;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: pink;
+}
+
+.app {
+  margin: auto;
+  padding: 1.5rem;
+  background-color: aliceblue;
+  width: 90vw;
+}
+
+.search-bar {
+  margin: auto;
+
+  border: 0.1rem solid;
+  border-radius: 0.2rem;
+  border-color: #a6a6a6;
+  height: 2rem;
+  /*box-shadow: 0px 0px 8px #a6a6a6;*/
+  max-width: 40rem;
+
+  display: flex;
+  align-items: stretch;
+}
+
+.imput-box {
+  flex: 1;
+  border: none;
+}
+.imput-box:focus {
+  outline: none;
+}
+
+.subject-box {
+  width: 6rem;
+  text-align: center;
+  margin: auto;
+  border-right: 0.1rem solid;
+  border-color: #a6a6a6;
+}
+
+.search-butten {
+  width: 5rem;
+  border: none;
 }
