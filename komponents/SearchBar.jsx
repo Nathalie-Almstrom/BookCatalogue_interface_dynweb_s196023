@@ -32,7 +32,9 @@ const SearchBar = () => {
           Search
         </button>
       </div> 
-      <ResultCard/>
+      <div className="card-container">
+        <ResultCard/>
+      </div>
     </>
   );
 };
