@@ -31,7 +31,7 @@ const DetailInfo = (prop) => {
 
   return (
     <div className="detailed-information-container">
-      <ImageHandler />
+      <ImageHandler slides={}/>
       <div>
         <h2>{detail.title}</h2>
         <ul className="list-item-horizontal">Author: {AuthorList}</ul>
@@ -46,12 +46,3 @@ const DetailInfo = (prop) => {
 
 export default DetailInfo;
 
-/*
-  const AuthorList = () => {
-    autorDetail.map((item) => {
-      return (
-        <li>{item}</li>
-      )
-    })
-  };
-*/

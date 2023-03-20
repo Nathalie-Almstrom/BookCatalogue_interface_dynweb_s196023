@@ -110,6 +110,10 @@ body {
   align-self: flex-end;
 }
 
+.subject-selection {
+  display: flex;
+}
+
 .subject {
   background-color: #c1d4e5;
   margin: auto;

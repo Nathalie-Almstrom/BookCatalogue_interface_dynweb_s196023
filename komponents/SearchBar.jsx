@@ -6,19 +6,46 @@ const SearchBar = () => {
   const [input, setInput] = useState(''); // used to pick up text in searchBar
   const [books, setBooks] = useState([]); // used to contain searchressults from API .docs
   const [numFound, setNumFound] = useState([]); // used to contain searchressults from API .numFound
+  const [pullSubject, setPullSubject] = useState('title');
 
   const searchKey = 'Title';
   const placeholderText = 'Search on ' + searchKey + '...';
 
-  //this is the start of fetch data argument
+  const pull_subject = (subjectFromChild) => {
+    setPullSubject(subjectFromChild);
+  };
 
+  //this is the start of fetch data argument
   async function getData() {
-    await fetch(`https://openlibrary.org/search.json?title=${input}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setBooks(data.docs);
-        setNumFound(data.numFound);
-      });
+    switch (pullSubject) {
+      case 'title': {
+        await fetch(`https://openlibrary.org/search.json?title=${input}`)
+          .then((response) => response.json())
+          .then((data) => {
+            setBooks(data.docs);
+            setNumFound(data.numFound);
+          });
+        break;
+      }
+      case 'author': {
+        await fetch(`https://openlibrary.org/search.json?author=${input}`)
+          .then((response) => response.json())
+          .then((data) => {
+            setBooks(data.docs);
+            setNumFound(data.numFound);
+          });
+        break;
+      }
+      case 'subject': {
+        await fetch(`https://openlibrary.org/search.json?subject=${input}`)
+          .then((response) => response.json())
+          .then((data) => {
+            setBooks(data.docs);
+            setNumFound(data.numFound);
+          });
+        break;
+      }
+    }
   }
 
   const clickSearch = () => {
@@ -29,7 +56,7 @@ const SearchBar = () => {
   return (
     <>
       <div className="search-bar">
-        <SubjectSelection />
+        <SubjectSelection func={pull_subject} />
         <input
           className="imput-box"
           type="search"
@@ -49,23 +76,3 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
-
-/*
-  //3x function to fetch searched data.
-  async function titleSearch(input) {
-    await fetch(`https://openlibrary.org/search.json?title=${input}`)
-      .then((response) => response.json())
-      .then((data) => setBooks(data.docs));
-  };
-  async function authorSearch(input) {
-    await fetch(`https://openlibrary.org/search.json?author=$${input}`)
-      .then((response) => response.json())
-      .then((data) => setBooks(data.docs));
-  };
-  async function subjectSearch(input) {
-    await fetch(`https://openlibrary.org/search.json?subject=$${input}`)
-      .then((response) => response.json())
-      .then((data) => setBooks(data.docs));
-  };
-  
-  */

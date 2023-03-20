@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 
-const SubjectSelection = () => {
+const SubjectSelection = (props) => {
+
+  const [selectedValue, setSelectedValue] = useState ();
+
+  props.func(selectedValue)
+
   return (
-    <div className='subject-box'>
-      Hi there!
-    </div>
+    <label className="subject-selection">
+      <select name="selectedFruit" defaultValue="title" onChange={(e) => setSelectedValue(e.target.value)}>
+        <option value="subject">Subject</option>
+        <option value="author">Author</option>
+        <option value="title">Title</option>
+      </select>
+    </label>
   )
 }
 
