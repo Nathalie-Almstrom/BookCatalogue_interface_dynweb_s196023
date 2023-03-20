@@ -1,17 +1,26 @@
 import React, { useState } from 'react';
-import DetailInfo from '../komponents/DetailInfo.jsx'
+import DetailInfo from '../komponents/DetailInfo.jsx';
 
-const ResultCard = () => {
+const ResultCard = (props) => {
+  const [divItem, setDivItem] = useState();
+
+  const data = props.data;
+
+  const DetailedInfo = () => {
+    setDivItem(<DetailInfo detail={data} />);
+  };
+
   return (
-   <> 
-    <div className="card">
-        <h2>A wery nong title</h2>
-        <ul className="list-item-horizontal">
-          <li>Publish year</li>
-          <li>Aughter</li>
+    <>
+      <div onClick={DetailedInfo} className="card">
+        <h2>{data.title}</h2>
+        <ul className="list-item">
+          <li>Publish year: {data.first_publish_year}</li>
+          <li>Aughter: {data.author_name[0]}</li>
         </ul>
-    </div>
-    <DetailInfo/>
+        <p>More details</p>
+      </div>
+      {divItem}
     </>
   );
 };

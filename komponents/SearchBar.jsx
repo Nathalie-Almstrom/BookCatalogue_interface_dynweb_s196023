@@ -44,9 +44,8 @@ const SearchBar = () => {
           Search
         </button>
       </div>
-      <div className="card-container">
-        <ResultTable props={books} />
-      </div>
+
+      <ResultTable books={books} num={numFound} />
     </>
   );
 };
