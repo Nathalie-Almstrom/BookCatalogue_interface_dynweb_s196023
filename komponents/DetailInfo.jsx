@@ -25,6 +25,7 @@ const DetailInfo = (prop) => {
         <ul className="list-item-horizontal">Published in {Language}</ul>
         <ul className="list-item-horizontal">{Subject}</ul>
       </div>
+      <button>Close</button> 
     </div>
   );
 };

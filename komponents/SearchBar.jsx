@@ -10,7 +10,7 @@ const SearchBar = () => {
   const searchKey = 'Title';
   const placeholderText = 'Search on ' + searchKey + '...';
 
-  //this is the fetch data argument
+  //this is the start of fetch data argument
 
   async function getData() {
     await fetch(`https://openlibrary.org/search.json?title=${input}`)
@@ -24,10 +24,8 @@ const SearchBar = () => {
   const clickSearch = () => {
     getData();
   };
-  //this is the fetch data argument
+  //this is the end of fetch data argument
 
-  console.log(books);
-  console.log(numFound);
   return (
     <>
       <div className="search-bar">

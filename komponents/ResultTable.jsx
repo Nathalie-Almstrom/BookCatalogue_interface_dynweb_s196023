@@ -5,8 +5,6 @@ const ResultTable = (props) => {
   const items = props.books.slice(0, 30);
   const itemsCount = props.num;
 
-  console.log(items);
-
   return (
     <>
       <p>Search results {itemsCount}</p>

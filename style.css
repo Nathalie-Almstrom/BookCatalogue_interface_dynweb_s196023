@@ -79,6 +79,10 @@ body {
   gap: 0.25em;
 }
 
+.list-item li {
+  flex: 1;
+}
+
 .list-item-horizontal {
   padding: 0;
   list-style: none;
@@ -87,10 +91,6 @@ body {
   align-items: stretch;
   flex-wrap: wrap;
   gap: 0.25em;
-}
-
-.list-item-horizontal li {
-  flex: 1;
 }
 
 .detailed-information-container {
@@ -106,11 +106,15 @@ body {
 .detailed-information-container div {
   flex-grow: 1;
 }
+.detailed-information-container button {
+  align-self: flex-end;
+}
 
 .subject {
-  background-color: aliceblue;
+  background-color: #c1d4e5;
   margin: auto;
   text-align: center;
   padding: 0.2rem;
   border-radius: 0.4rem;
+  color: #393f44;
 }
