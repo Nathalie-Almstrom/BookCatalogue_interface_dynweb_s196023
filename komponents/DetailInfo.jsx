@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import ImageHandler from '../komponents/ImageHandler.jsx';
 
-const booleanClose = false;
-
 const DetailInfo = (prop) => {
+
+  const booleanClose = false;
   const CloseInfo = () => {
     prop.func(booleanClose);
   };
