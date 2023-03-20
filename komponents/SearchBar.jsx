@@ -1,36 +1,34 @@
 import React, { useState } from 'react';
 import SubjectSelection from '../komponents/SubjectSelection.jsx';
 import ResultCard from '../komponents/ResultCard.jsx';
-import fetchData from '../utils/fetchData.js';
-
+import fetchData from './utils/fetchData.js';
 
 const SearchBar = () => {
   const [input, setInput] = useState(''); // used to pick up text in searchBar
-  const [books, setBooks] = useState([]); // used to contain searchressults from API
+  const [books, setBooks] = useState([]); // used to contain searchressults from API .docs
+  const [numFound, setNumFound] = useState([]); // used to contain searchressults from API .numFound
 
   const searchKey = 'Title';
   const placeholderText = 'Search on ' + searchKey + '...';
 
-  const titleAPI = fetchData(`https://openlibrary.org/search.json?title=${input}`);
+  //this is the fetch data argument
 
-    //This switch satment determines the API search: title, author, subject
-    function clickSearch () {
-      switch (searchKey) {
-        case 'Title': {
-            const data = titleAPI.read();
-          break;
-        }
-        case 'Author': {
-            console.log('this works')
-          break;
-        }
-        case 'Subject': {
-            console.log('this works')
-          break;
-        }
-      }
-    };
+  async function getData() {
+    await fetch(`https://openlibrary.org/search.json?title=${input}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setBooks(data.docs);
+        setNumFound(data.numFound);
+      });
+  }
 
+  const clickSearch = () => {
+    getData();
+  };
+  //this is the fetch data argument
+
+  console.log(books);
+  console.log(numFound);
   return (
     <>
       <div className="search-bar">
@@ -56,7 +54,7 @@ const SearchBar = () => {
 
 export default SearchBar;
 
- /*
+/*
   //3x function to fetch searched data.
   async function titleSearch(input) {
     await fetch(`https://openlibrary.org/search.json?title=${input}`)
