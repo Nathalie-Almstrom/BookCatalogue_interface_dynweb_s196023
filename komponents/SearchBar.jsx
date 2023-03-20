@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import SubjectSelection from '../komponents/SubjectSelection.jsx';
-import ResultCard from '../komponents/ResultCard.jsx';
-import fetchData from './utils/fetchData.js';
+import ResultTable from '../komponents/ResultTable.jsx';
 
 const SearchBar = () => {
   const [input, setInput] = useState(''); // used to pick up text in searchBar
@@ -46,7 +45,7 @@ const SearchBar = () => {
         </button>
       </div>
       <div className="card-container">
-        <ResultCard />
+        <ResultTable props={books} />
       </div>
     </>
   );
