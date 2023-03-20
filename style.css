@@ -106,3 +106,11 @@ body {
 .detailed-information-container div {
   flex-grow: 1;
 }
+
+.subject {
+  background-color: aliceblue;
+  margin: auto;
+  text-align: center;
+  padding: 0.2rem;
+  border-radius: 0.4rem;
+}

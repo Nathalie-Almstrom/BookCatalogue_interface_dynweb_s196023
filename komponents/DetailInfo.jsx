@@ -11,7 +11,7 @@ const DetailInfo = (prop) => {
   const AuthorList = autorDetail.map((item, index) => <li key={index}>{item}</li> )
   const Publisher = publisherDetail.map((item, index) => <li key={index}>{item}</li> )
   const Language = languageDetail.map((item, index) => <li key={index}>{item}</li> )
-  const Subject = subjectDetail.map((item, index) => <li key={index}>{item}</li> )
+  const Subject = subjectDetail.map((item, index) => <li className="subject" key={index}>{item}</li> )
 
   return (
     <div className="detailed-information-container">
