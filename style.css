@@ -66,6 +66,10 @@ body {
   border-radius: 0.5rem;
   height: fit-content;
   background-color: #bde0ff;
+
+  flex: 1;
+  min-width: 15rem;
+  min-height: 10rem;
 }
 
 .list-item {

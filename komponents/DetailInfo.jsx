@@ -29,9 +29,27 @@ const DetailInfo = (prop) => {
     </li>
   ));
 
+  //start test
+  let keyVal = [];
+  let valVal = [];
+
+  if ('lccn' in detail) {
+    keyVal = "LCCN"
+    valVal = detail.lccn;
+    console.log('This img is from LCCN')
+  } else if ('oclc' in detail) { 
+    keyVal = "OCLC"
+    valVal = detail.oclc;  
+    console.log('This img is from OCLC')
+  } else if ('isbn' in detail) {
+    keyVal = "ISBN"
+    valVal = detail.isbn;  
+    console.log('This img is from ISBN')
+  }; 
+
   return (
     <div className="detailed-information-container">
-      <ImageHandler slides={}/>
+      <ImageHandler slideValue={valVal} slideKey={keyVal}/>
       <div>
         <h2>{detail.title}</h2>
         <ul className="list-item-horizontal">Author: {AuthorList}</ul>
@@ -46,3 +64,50 @@ const DetailInfo = (prop) => {
 
 export default DetailInfo;
 
+/*
+
+// tracing image refferences in multiple keys 
+//test med switch
+
+const [keyVal, setKeyVal] = useState();
+const [valVal, setValVal] = useState();
+
+switch (detail) {
+  case 'lccn' : {
+    setKeyVal(lccn);
+    setValVal(detail.lccn);
+    break
+  }
+  case 'oclc' : {
+    setKeyVal(oclc);
+    setValVal(detail.oclc);
+    break
+  }
+  case 'isbn': {
+    setKeyVal(isbn);
+    setValVal(detail.isbn);
+    break
+  }
+  default: { 
+    setValVal('Either this did not work or theres no photos')
+    break
+  }
+}
+console.log(valVal)
+
+
+*/
+
+
+/* Test med .find
+function isSubject (obj) {
+  if ("oclc" in detail) {
+    obj.detail.oclc
+  } else {
+    console.log("this did not work.")
+  }
+}
+
+console.log(detail.find(isSubject))
+
+*/

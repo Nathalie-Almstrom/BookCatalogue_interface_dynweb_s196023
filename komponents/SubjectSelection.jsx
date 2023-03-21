@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const SubjectSelection = (props) => {
 
-  const [selectedValue, setSelectedValue] = useState ();
+  const [selectedValue, setSelectedValue] = useState ("title");
 
   props.func(selectedValue)
 
