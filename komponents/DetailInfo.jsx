@@ -49,15 +49,19 @@ const DetailInfo = (prop) => {
 
   return (
     <div className="detailed-information-container">
+      <div className="top-content">
       <ImageHandler slideValue={valVal} slideKey={keyVal}/>
-      <div>
+      </div>
+      <div className="center-content">
         <h2>{detail.title}</h2>
         <ul className="list-item-horizontal">Author: {AuthorList}</ul>
         <ul className="list-item-horizontal">Published by {Publisher}</ul>
         <ul className="list-item-horizontal">Published in {Language}</ul>
-        <ul className="list-item-horizontal">{Subject}</ul>
       </div>
-      <button onClick={CloseInfo}>Close</button>
+      <div className="bottom-content">
+        <ul className="list-item-horizontal">{Subject}</ul>
+        <button onClick={CloseInfo}>Close</button>
+      </div>
     </div>
   );
 };
