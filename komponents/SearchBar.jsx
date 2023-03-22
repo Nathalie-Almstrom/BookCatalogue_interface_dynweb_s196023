@@ -8,9 +8,10 @@ const SearchBar = () => {
   const [numFound, setNumFound] = useState([]); // used to contain searchressults from API .numFound
   const [pullSubject, setPullSubject] = useState('title');
 
-  const searchKey = 'Title';
+  const searchKey = pullSubject;
   const placeholderText = 'Search on ' + searchKey + '...';
 
+  //this function pickes up the value from subjectSelection conponent and uses it to determin what URL will be used for the search. 
   const pull_subject = (subjectFromChild) => {
     setPullSubject(subjectFromChild);
   };

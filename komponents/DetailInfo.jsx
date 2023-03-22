@@ -8,12 +8,14 @@ const DetailInfo = (prop) => {
     prop.func(booleanClose);
   };
 
+  //Variables to determin and make changes to props
   const detail = prop.detail;
   const autorDetail = detail.author_name;
   const publisherDetail = detail.publisher;
   const languageDetail = detail.language;
   const subjectDetail = detail.subject;
 
+  // Map loops to assure all values are being rendered in case there is more then one.  
   const AuthorList = autorDetail.map((item, index) => (
     <li key={index}>{item}</li>
   ));
@@ -29,24 +31,22 @@ const DetailInfo = (prop) => {
     </li>
   ));
 
-  //start test
+  // As there is more then one key related to images, in case one key does not exist, an other key will be used to get the images. This assures there will allway be atleast one image showing.
   let keyVal = [];
   let valVal = [];
 
   if ('lccn' in detail) {
     keyVal = "LCCN"
     valVal = detail.lccn;
-    console.log('This img is from LCCN')
   } else if ('oclc' in detail) { 
     keyVal = "OCLC"
     valVal = detail.oclc;  
-    console.log('This img is from OCLC')
   } else if ('isbn' in detail) {
     keyVal = "ISBN"
     valVal = detail.isbn;  
-    console.log('This img is from ISBN')
   }; 
 
+  // This returns the card display for the detailed information
   return (
     <div className="detailed-information-container">
       <div className="top-content">
@@ -67,51 +67,3 @@ const DetailInfo = (prop) => {
 };
 
 export default DetailInfo;
-
-/*
-
-// tracing image refferences in multiple keys 
-//test med switch
-
-const [keyVal, setKeyVal] = useState();
-const [valVal, setValVal] = useState();
-
-switch (detail) {
-  case 'lccn' : {
-    setKeyVal(lccn);
-    setValVal(detail.lccn);
-    break
-  }
-  case 'oclc' : {
-    setKeyVal(oclc);
-    setValVal(detail.oclc);
-    break
-  }
-  case 'isbn': {
-    setKeyVal(isbn);
-    setValVal(detail.isbn);
-    break
-  }
-  default: { 
-    setValVal('Either this did not work or theres no photos')
-    break
-  }
-}
-console.log(valVal)
-
-
-*/
-
-
-/* Test med .find
-function isSubject (obj) {
-  if ("oclc" in detail) {
-    obj.detail.oclc
-  } else {
-    console.log("this did not work.")
-  }
-}
-
-console.log(detail.find(isSubject))
-
-*/

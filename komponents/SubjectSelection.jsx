@@ -4,6 +4,7 @@ const SubjectSelection = (props) => {
 
   const [selectedValue, setSelectedValue] = useState ("title");
 
+  //this gives the selected value back to parent component
   props.func(selectedValue)
 
   return (
