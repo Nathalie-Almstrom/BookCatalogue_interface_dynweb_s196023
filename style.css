@@ -92,9 +92,10 @@ body {
   list-style: none;
 
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 0.25em;
+  flex-grow: 1;
 }
 
 .detailed-information-container {
@@ -109,13 +110,15 @@ body {
   flex-wrap: wrap;
 }
 .detailed-information-container .top-content {
-
+  flex-grow: 1;
 }
 .detailed-information-container .center-content {
   padding: inherit;
+  flex-grow: 1;
 }
 .detailed-information-container .bottom-content {
   display: flex;
+  flex-grow: 2;
 }
 
 .bottom-content button {
